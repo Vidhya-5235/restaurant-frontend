@@ -15,7 +15,8 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/book-table", data);
+   const res = await axios.post("https://restaurant-backend-thtc.onrender.com/book-table", data);
+
     alert(res.data.message);
   };
 

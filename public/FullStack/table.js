@@ -44,7 +44,8 @@ document.getElementById("booking-form").addEventListener("submit", async functio
   const data = { name, email, phone, guests, datetime, message, preorder };
 
   try {
-    const response = await fetch("http://localhost:5000/book-table", {
+    const response = await fetch("https://restaurant-backend-thtc.onrender.com/book-table", {
+
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
