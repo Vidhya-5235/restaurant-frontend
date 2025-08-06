@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ice-Cream Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+ <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+
+  <!-- Ice-Cream Items -->
+  <div class="dessub1">
+    <ul>
+      <li><a href="ice.html"><img src="images/chocoice.jpg" width="200" height="200"></a>
+        <h3>CHOCOLATE ICE-CREAM</h3>
+        <h2>₹150</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHOCOLATE ICE-CREAM" data-price="150" data-image="images/chocoice.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="bice.html"><img src="images/butterrice.jpg" width="200" height="200"></a>
+        <h3>BUTTERSCOTCH ICE-CREAM</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="BUTTERSCOTCH ICE-CREAM" data-price="100" data-image="images/butterrice.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="sice.html"><img src="images/strawice.jpg" width="200" height="200"></a>
+        <h3>STRAWBERRY ICE-CREAM</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="STRAWBERRY ICE-CREAM" data-price="100" data-image="images/strawice.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="vice.html"><img src="images/vanilla.jpg" width="200" height="200"></a>
+        <h3>VANILLA ICE-CREAM</h3>
+        <h2>₹120</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="VANILLA ICE-CREAM" data-price="120" data-image="images/vanilla.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="fice.html"><img src="images/ferrero.jpg" width="200" height="200"></a>
+        <h3>FERRERO ROCHER ICE-CREAM</h3>
+        <h2>₹200</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="FERRERO ROCHER ICE-CREAM" data-price="200" data-image="images/ferrero.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="oice.html"><img src="images/oreo.jpg" width="200" height="200"></a>
+        <h3>OREO ICE-CREAM</h3>
+        <h2>₹180</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="OREO ICE-CREAM" data-price="180" data-image="images/oreo.jpg">Add to Cart</button>
+      </li>
+
+      <li><a href="blice.html"><img src="images/blackice.jpg" width="200" height="200"></a>
+        <h3>BLACKCURRANT ICE-CREAM</h3>
+        <h2>₹140</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="BLACKCURRANT ICE-CREAM" data-price="140" data-image="images/blackice.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+<!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

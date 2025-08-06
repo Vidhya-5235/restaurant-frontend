@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paytm Payment</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+
+   <style>
+    /* Header styling matching cart.html */
+   .header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color:peachpuff;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  width: 250px;
+  height: 180px;
+  max-width: 100%;
+}
+
+
+.menu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu1 ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu1 ul li {
+  border-left: 5px solid lavenderblush;
+  background-color: lavender;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.menu1 ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu1 ul li a i {
+  font-size: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .menu1 {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu1 ul {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .menu1 ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .menu1 ul li a {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+
+  .menu1 ul li a {
+    font-size: 16px;
+  }
+
+  .menu1 ul li a i {
+    font-size: 18px;
+  }
+}
+
+.payment-container {
+  max-width: 500px;
+  background-color: white;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.payment-container h2 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.payment-container p {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+/* Form Styling */
+.payment-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-container input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.payment-container button {
+  background-color: #ff944d;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-container button:hover {
+  background-color: #ff751a;
+}
+
+/* QR Image Styling */
+.qr-img {
+  width: 250px;
+  height: auto;
+  margin-top: 15px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .payment-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+
+}
+
+.closebtn
+{
+  background-color:white;
+  border-radius:5px;
+  padding:12px 15px;
+  cursor: pointer;
+  background-color: #bd2130;
+  color:white;
+   border: none;
+   font-size:20px;
+}
+.combtn
+{
+  background-color:white;
+  border-radius:5px;
+  padding:12px 15px;
+  cursor: pointer;
+  background-color: #bd2130;
+  color:white;
+   border: none;
+   font-size:20px;
+}
+@media (max-width: 480px) {
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .cart-buttons .closebtn 
+  .combtn{
+    width: 100%;
+    max-width: 200px;
+
+  }
+}
+</style>
+</head>
+<body>
+   <header class="header">
+    <div class="navbar1">
+      <img src="images/logoin.png" alt="Logo"  class="logo">
+    </div>
+    <div class="menu1">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="payment-container">
+    <h2><i>Pay with Paytm</i></h2>
+    <img src="images/qr.svg" alt="Paytm QR" class="qr-img">
+    <p>Scan this QR code using Paytm app to complete the payment.</p>
+  </div>
+   <div class="cart-buttons">
+  <button class="closebtn" type="button" onclick="history.back()">Close</button>
+   <a href="suc.html"><button class="combtn" type="button" onclick="complete">Completed</button></a>
+</div>
+ 
+<script>
+    localStorage.removeItem('cart'); 
+  </script>
+</body>
+</html>

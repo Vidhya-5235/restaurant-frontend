@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dessert Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+ <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+
+  <!-- Dessert Items -->
+  <div class="dessub">
+    <ul>
+      <li><a href="br.html"><img src="images/brownie.webp" width="200" height="200"></a>
+        <h3>BROWNIE</h3>
+        <h2>₹150</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="BROWNIE" data-price="150" data-image="images/brownie.webp">Add to Cart</button>
+      </li>
+
+      <li><a href="jar.html"><img src="images/jar.webp" width="200" height="200"></a>
+        <h3>JAR CAKE</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="JAR CAKE" data-price="100" data-image="images/jar.webp">Add to Cart</button>
+      </li>
+
+      <li><a href="cupcake.html"><img src="images/cupcake.webp" width="200" height="200"></a>
+        <h3>CUP CAKE</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CUP CAKE" data-price="100" data-image="images/cupcake.webp">Add to Cart</button>
+      </li>
+
+      <li><a href="ice1.html"><img src="images/icecream.jpg" width="200px"></a><h3 height="1000px">ICE CREAM</h3><br></h2><br>
+            <li><a href="pastry1.html"><img src="images/pastry.jpg" width="200px" height="200px"></a><h3 height="1000px">PASTRY</h3><br><br>
+            <li><a href="puff1.html"><img src="images/puff.jpg" width="200px" height="200px"></a><h3 height="1000px">PUFF'S</h3><br><br>
+
+      <li><a href="swiss.html"><img src="images/swiss.jpg" width="200" height="200"></a>
+        <h3>SWISS ROLLS</h3>
+        <h2>₹140</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="SWISS ROLLS" data-price="140" data-image="images/swiss.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+<!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

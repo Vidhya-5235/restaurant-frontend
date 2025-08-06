@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit/Debit Card Payment</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      flex-direction: column;
+    }
+
+    .card-box {
+      background-color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .card-box h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-box">
+    <h2>Pay via Credit/Debit Card</h2>
+
+    <form id="payment-form">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input id="amount" name="amount" type="number" placeholder="Amount ₹" required readonly />
+      <input type="text" name="cardNumber" placeholder="Card Number" required />
+      <input type="text" name="expiry" placeholder="Expiry Date (MM/YY)" required />
+      <input type="text" name="cvv" placeholder="CVV" required />
+      <button type="submit">Confirm Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("payment-form");
+      const amountInput = document.getElementById("amount");
+      const storedAmount = localStorage.getItem("cartTotal");
+
+      // Fill in the amount from localStorage
+      if (amountInput && storedAmount) {
+        amountInput.value = storedAmount;
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+          name: form.name.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          amount: parseFloat(form.amount.value),
+          paymentMethod: "card"
+        };
+
+        try {
+          const res = await fetch("http://localhost:5000/pay", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          const result = await res.json();
+          if (res.ok) {
+            window.location.href = "suc.html?clearCart=true";
+          } else {
+            alert(result.message || "Payment failed.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Something went wrong!");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

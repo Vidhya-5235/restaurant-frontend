@@ -1,0 +1,101 @@
+/* General body styles */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* center content vertically */
+  background-color: white; /* or your background */
+}
+
+/* Wrapper for the whole page */
+.page-wrapper1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image at the top */
+.top-image1 {
+  width: 100%;         /* Change from 400% */
+  max-width: 400px;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* Login/Register box */
+.login-container1 {
+  background-color: bisque;
+  padding: 20px;
+  margin-top: 0;         /* Reduced space above login box */
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+
+/* Heading */
+.login-container1 h2 {
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-container1 input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.login-container1 button {
+  width: 80%;
+  padding: 10px;
+  background-color: grey;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-container1 button:hover {
+  background-color: #e03e00;
+}
+
+
+/* Text below form */
+.login-container1 p {
+  margin-top: 10px;
+}
+
+/* Link styling */
+.login-container1 a {
+  color: blue;
+  text-decoration: none;
+}
+
+.login-container1 a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .top-image1 {
+    width: 90%;
+    margin-top: 5px;     /* Reduced from 15px */
+    margin-bottom: 2px;  /* Extra tight spacing */
+  }
+
+  .login-container1 {
+    width: 90%;
+    padding: 15px;
+    margin-top: 2px;     /* Extra tight spacing */
+  }
+}

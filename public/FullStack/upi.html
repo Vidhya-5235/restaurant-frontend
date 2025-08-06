@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UPI Payment</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      flex-direction: column;
+    }
+
+    .upi-box {
+      background-color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .upi-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .qr-code {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      border: 2px solid #ddd;
+      padding: 10px;
+      background: #fff;
+      object-fit: contain;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="upi-box">
+    <h2>Scan & Pay via UPI</h2>
+
+    <!-- Replace with your actual QR code -->
+    <img class="qr-code" src="images/qrcode.jpg" alt="QR Code Not Found" />
+
+    <p style="margin-bottom: 10px; font-weight: bold;">
+      Use PhonePe, Paytm, GPay, or any UPI app to scan and pay
+    </p>
+
+    <form id="payment-form">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input id="amount" name="amount" type="number" placeholder="Amount ₹" required readonly />
+
+      <button type="submit">Confirm Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("payment-form");
+      const amountInput = document.getElementById("amount");
+      const storedAmount = localStorage.getItem("cartTotal");
+
+      // Autofill amount
+      if (amountInput && storedAmount) {
+        amountInput.value = storedAmount;
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+          name: form.name.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          amount: parseFloat(form.amount.value),
+          paymentMethod: "upi"
+        };
+
+        try {
+          const res = await fetch("http://localhost:5000/pay", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          const result = await res.json();
+          if (res.ok) {
+            // On successful payment
+            localStorage.removeItem("cart");
+            localStorage.removeItem("cartTotal");
+            window.location.href = "suc.html?clearCart=true";
+          } else {
+            alert(result.message || "Payment failed. Please try again.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Server error. Please try again later.");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

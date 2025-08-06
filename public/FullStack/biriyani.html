@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biriyani Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+ <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+  <!-- Biriyani Items -->
+  <div class="birsub">
+    <ul>
+      <li>
+        <a href="biriyani1.html"><img src="images/Hyderabadi-chicken-Biryani.jpg" width="200" height="200"></a>
+        <h3>CHICKEN BIRIYANI</h3>
+        <h2><i>If someone says true love never exists, make them taste Chicken Biryani!</i></h2>
+      </li>
+
+      <li>
+        <a href="mush.html"><img src="images/Chettinad-Mushroom-Biryani-4.jpg" width="200" height="200"></a>
+        <h3>MUSHROOM BIRIYANI(₹400)</h3>
+    
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>Never trust a person who doesn't love Biriyani..</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="MUSHROOM BIRIYANI" data-price="400" data-image="images/Chettinad-Mushroom-Biryani-4.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="veg.html"><img src="images/veg.jpeg" width="200" height="200"></a>
+        <h3>VEG BIRIYANI(₹200)</h3>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>Veggie Biriyani, where taste meets health!</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="VEG BIRIYANI" data-price="200" data-image="images/veg.jpeg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="prawn.html"><img src="images/Prawn-Biryani.webp" width="200" height="200"></a>
+        <h3>PRAWN BIRIYANI(₹400)</h3>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>When life gives you rice, make extraordinary Prawn Biriyani.</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="PRAWN BIRIYANI" data-price="400" data-image="images/Prawn-Biryani.webp">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="paneer.html"><img src="images/paneer.jpeg" width="200" height="200"></a>
+        <h3>PANEER BIRIYANI(₹350)</h3>
+      
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>A plate of Paneer Biriyani, a meal fit for royalty...</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="PANEER BIRIYANI" data-price="350" data-image="images/paneer.jpeg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="fish.html"><img src="images/fish.jpg" width="200" height="200"></a>
+        <h3>FISH BIRIYANI(₹450)</h3>
+      
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>Food is love, and Fish Biryani is a love worth sharing.</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="FISH BIRIYANI" data-price="450" data-image="images/fish.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="mutton.html"><img src="images/Mutton-Biryani-1-e1574922017237.jpg" width="200" height="200"></a>
+        <h3>MUTTON BIRIYANI(₹550)</h3>
+        <h2>₹550</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <h2><i>Biriyani, the king of all meals!</i></h2>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="MUTTON BIRIYANI" data-price="550" data-image="images/Mutton-Biryani-1-e1574922017237.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+  <!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

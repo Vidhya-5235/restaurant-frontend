@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos REstuarant</title>
+    <link rel="icon" href="./images/logo001.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js"></script>
+<style>
+    .logout-item {
+  display: flex;
+  align-items: center;      /* Vertically center icon and text */
+  gap: 10px;                /* Space between icon and text */
+  padding: 10px 15px;
+  cursor: pointer;   
+  border-radius: 5px;
+}
+
+.logout-item i {
+  font-size: 10px;
+}
+
+.logout-item span {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+</style>
+</head>
+<body>
+   <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="400px" height="400px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+       <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+
+        </ul>
+     </div>
+   </header>
+     <div class="submenu">
+        <ul>
+            <li><a href="breakfast.html"><img src="images/breakfast.jpg" width="200px"></a><h3>BREAKFAST</h3></li>
+             <li><a href="snacks.html"><img src="images/snacks.webp" width="200px" height="200px"></a><h3>SNACKS</h3></li>
+            <li><a href="biriyani.html"><img src="images/biriyani.png" width="200px" height="200px" ></a><h3>BIRIYANI</h3></li>
+            <li><a href="desserts.html"><img src="images/dessert.jpg" width="200px" height="200px"></a><h3>DESSERTS</h3></li>
+            <li><a href="milkshake.html"><img src="images/milkshake.jpg" width="200px"></a><h3>MILKSHAKE</h3></li>
+           
+        </ul>
+     </div>
+<br>
+<br>
+     <div class="table-booking">
+    <a href="table.html" class="book-btn">Book a Table</a>
+</div>
+
+     <div class="para">
+        <p><i>Amigos is one of the best restuarant in your locality, catering to millions of consumers each month. 
+            Founded in 2025, its mission is to elevate the quality of life for the consumers by offering quality food.
+            Amigos has gained a lot of fan following as the food platform can be operated by anyone through its mobile application or website. 
+            The application is used by food lovers to order food online from our restuarant.
+        </i>
+        </p>
+     </div>
+     <div class="contact1">
+        <h3>Contact Info:</h3>
+        <ol>
+        <li>Phone no:+91 7093216105</li>
+        <li>Mail:amigosrestuarant123@gmail.com<li>
+        <li>Hours: 9 AM – 10 PM (Mon–Sat)</li>
+         <li>Hours: 9 AM – 11 PM (Sun)</li>       
+        </ol>
+     </div>
+
+     
+
+     <section class="footer">
+    <div class="container2">
+        <div class="footer">
+            <div>
+                <h1>Useful Links</h1>
+                <p>Privacy Policy</p>
+                <p>Terms of Use</p>
+                <p>Return Policy</p>
+            </div>
+            <div>
+                <h1>Company</h1>
+                <p>About Us</p>
+                <p>Contact Us</p>
+            </div>
+            <div>
+                <h1>Services by Us</h1>
+                <p>Free Delivery</p>
+                <p>NO Return</p>
+                <p>Online Payment</p>
+                <p>Guarantee Delivery</p>
+            </div>
+            <div class="footer-image">
+                <h1>Website</h1>
+                <img src="images/logoin.png">
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Made by <i class="fa-solid fa-heart"></i> pbr vits students</p>
+    </div>
+</section>
+
+
+
+</body>
+</html>

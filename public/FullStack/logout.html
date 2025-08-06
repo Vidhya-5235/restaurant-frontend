@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <script defer src="logout.js"></script>
+     <style>
+         .header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color:peachpuff;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  width: 200px;
+  height: 180px;
+  max-width: 100%;
+}
+
+
+.menu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu1 ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu1 ul li {
+  border-left: 5px solid lavenderblush;
+  background-color: lavender;
+  padding: 15px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.menu1 ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu1 ul li a i {
+  font-size: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .menu1 {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu1 ul {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .menu1 ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .menu1 ul li a {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+
+  .menu1 ul li a {
+    font-size: 16px;
+  }
+
+  .menu1 ul li a i {
+    font-size: 18px;
+  }
+}
+.logout-container
+{
+    margin:100px 40px 40px 40px;
+    border:2px solid black;
+    justify-content:space-between;
+    text-align:center;
+    border-radius:5px;
+}
+
+.message {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .redirect {
+      color: gray;
+      font-size: 16px;
+    }
+    </style>
+
+     <script>
+    // Clear localStorage/session if used
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Redirect to React login page after 2 seconds
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+  </script>
+</head>
+<body>
+   
+  <header class="header">
+    <div class="navbar1">
+      <img src="images/logoin.png" alt="Logo" width="250" height="150"  class="logo">
+    </div>
+    <div class="menu1">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+      </ul>
+    </div>
+  </header>
+  <div class="message">You have been logged out successfully.</div>
+  <div class="redirect">Redirecting to login page...</div>
+
+
+</body>
+</html>
+     

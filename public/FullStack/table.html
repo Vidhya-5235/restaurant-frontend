@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Table</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+   <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="400px" height="400px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+       <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+
+        </ul>
+     </div>
+   </header>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Book Table</title>
+</head>
+<body>
+  <form id="booking-form">
+    <input id="name" type="text" placeholder="Name" required />
+    <input id="email" type="email" placeholder="Email" required />
+    <input id="phone" type="tel" placeholder="Phone" required />
+    <input id="guests" type="number" placeholder="Guests" required />
+    <input id="datetime" type="datetime-local" required />
+    <textarea id="message" placeholder="Message"></textarea>
+    <button type="submit">Book Table</button>
+  </form>
+
+  <button id="preorder-btn">Preorder</button>
+
+  <script src="table.js"></script>
+</body>
+</html>
+
+</body>
+</html>

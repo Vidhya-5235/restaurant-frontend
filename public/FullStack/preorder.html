@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Preorder Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fffaf5;
+      padding: 30px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #d35400;
+    }
+    .category {
+      margin-bottom: 40px;
+    }
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .menu-item {
+      width: 150px;
+      padding: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .menu-item:hover {
+      background-color: #f4e8e2;
+      transform: scale(1.05);
+    }
+    .menu-item.selected {
+      background-color: #ffe0b3;
+      border-color: orange;
+    }
+    .price {
+      display: block;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    #total {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: green;
+    }
+    #next-btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      background-color: #ff8800;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #next-btn:hover {
+      background-color: #e67300;
+    }
+    .subcategory {
+  margin-bottom: 30px;
+}
+
+.subcategory h3 {
+  color: #8e44ad;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+
+.quantity-controls button {
+  background-color: #ff8800;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.quantity-controls button:hover {
+  background-color: #e67300;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <h1 style="color:#c0392b;">Preorder Your Meal</h1>
+
+  <!-- Category Sections -->
+  <div class="category">
+    <h2>Breakfast</h2>
+    
+         <div class="subcategory">
+         <h3>Dosa's</h3>
+         <div class="menu-grid">
+      <div class="menu-item" data-name="Dosa" data-price="30">Dosa<span class="price">₹30</span></div>
+      <div class="menu-item" data-name="Karam Dosa" data-price="40">Karam Dosa <span class="price">₹40</span></div>
+      <div class="menu-item" data-name="Onion Dosa" data-price="35">Onion Dosa<span class="price">₹35</span></div>
+      <div class="menu-item" data-name="Masala Dosa" data-price="45">Masala Dosa<span class="price">₹45</span></div>
+      <div class="menu-item" data-name="Pesarattu" data-price="35">Pesarattu<span class="price">₹35</span></div>
+      <div class="menu-item" data-name="Upma Dosa" data-price="40">Upma Dosa <span class="price">₹40</span></div>
+      <div class="menu-item" data-name="Ravva Dosa" data-price="40">Ravva Dosa<span class="price">₹40</span></div>
+      <div class="menu-item" data-name="Egg Dosa" data-price="50">Egg Dosa<span class="price">₹50</span></div>
+    </div>
+    </div>
+    <div class="subcategory">
+         <h3>Other's</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Idli" data-price="30">Idli<span class="price">₹30</span></div>
+      <div class="menu-item" data-name="poori" data-price="30">Poori <span class="price">₹30</span></div>
+      <div class="menu-item" data-name="Utappam" data-price="70">Utappam<span class="price">₹70</span></div>
+      <div class="menu-item" data-name="Bonda" data-price="40">Bonda<span class="price">₹40</span></div>
+       <div class="menu-item" data-name="Gaare" data-price="30">Gaare<span class="price">₹30</span></div>
+      <div class="menu-item" data-name="Kichidi" data-price="60">Kichidi <span class="price">₹60</span></div>
+      <div class="menu-item" data-name="Pongal" data-price="50">Pongal<span class="price">₹50</span></div>
+      <div class="menu-item" data-name="Onion special Dosa" data-price="60">Onion special Dosa<span class="price">₹60</span></div>
+    </div>
+  </div>
+
+ <div class="category">
+  <h2>Snacks</h2>
+  <div class="subcategory">
+         <h3>Other's</h3>
+   <div class="menu-grid">
+      <div class="menu-item" data-name="Veg-Pizza" data-price="250">Veg-Pizza<span class="price">₹250</span></div>
+      <div class="menu-item" data-name="Chicken-Pizza" data-price="350">Chicken-Pizza <span class="price">₹350</span></div>
+      <div class="menu-item" data-name="Veg-Burger" data-price="200">Veg-Burger<span class="price">₹200</span></div>
+      <div class="menu-item" data-name="Chicken-Burger" data-price="300">Chicken-Burger<span class="price">₹300</span></div>
+      <div class="menu-item" data-name="Mocktails" data-price="100">Mocktails<span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Shawarma" data-price="200">Shawarma<span class="price">₹200</span></div>
+      <div class="menu-item" data-name="Samosa" data-price="80">Samosa<span class="price">80</span></div>
+   </div>
+  </div>
+
+  <div class="subcategory">
+    <h3>Juices</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Watermelon Juice" data-price="100">Watermelon Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Mango Juice" data-price="100">Mango Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Mosambi Juice" data-price="100">Mosambi Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Orange Juice" data-price="100">Orange Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Grape Juice" data-price="100">Grape Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Apple Juice" data-price="100">Apple Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="pomegranate Juice" data-price="100">Pomegranate Juice <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Mixed Fruit Juice" data-price="100">Mixed Fruit Juice <span class="price">₹100</span></div>
+      
+
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Biryanis</h2>
+    <div class="subcategory">
+    <h3>Chicken Biriyani's</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Chicken Biriyani" data-price="350">Chicken Biriyani <span class="price">₹350</span></div>
+      <div class="menu-item" data-name="Fry piece Chicken Biriyani" data-price="400">Fry Piecce Chicken Biriyani<span class="price">₹400</span></div>
+      <div class="menu-item" data-name="Chicken Boneless" data-price="300">Chicken Boneless <span class="price">₹300</span></div>
+      <div class="menu-item" data-name="Chicken Lollipop" data-price="500">Chicken Lollipop <span class="price">₹500</span></div>
+      <div class="menu-item" data-name="Chicken Wings" data-price="400">Chicken Wings <span class="price">₹400</span></div>
+      <div class="menu-item" data-name="Chicken tandoori" data-price="550">Chicken tandoori<span class="price">₹550</span></div>
+      <div class="menu-item" data-name="Amigos special chicken Biriyani" data-price="600">Amigos chicken special biriyani <span class="price">₹600</span></div>
+    </div>
+  </div>
+  <div class="subcategory">
+         <h3>Other's</h3>
+    <div class="menu-grid">
+     <div class="menu-item" data-name="Mushroom Biryani" data-price="400">Mushroom Biryani <span class="price">₹400</span></div>
+      <div class="menu-item" data-name="Veg Biryani" data-price="200">Veg Biryani <span class="price">₹200</span></div>
+       <div class="menu-item" data-name="Prawn Biryani" data-price="400">Prawn Biryani <span class="price">₹400</span></div>
+      <div class="menu-item" data-name="Paneer Biryani" data-price="350">Paneer Biryani <span class="price">₹350</span></div>
+      <div class="menu-item" data-name="Fish Biryani" data-price="450">Fish Biryani <span class="price">₹450</span></div>
+       <div class="menu-item" data-name="Mutton Biryani" data-price="550">Mutton Biryani <span class="price">₹550</span></div>
+      
+    </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Milkshakes</h2>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Oreo Shake" data-price="200">Oreo Shake <span class="price">₹200</span></div>
+      <div class="menu-item" data-name="Strawberry Shake" data-price="100">Strawberry Shake <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Chocolate Shake" data-price="100">Chocolate Shake <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Butterscotch Shake" data-price="100">Butterscotch Shake <span class="price">₹100</span></div>
+       <div class="menu-item" data-name="Brownie Shake" data-price="250">Brownie Shake <span class="price">₹250</span></div>
+      <div class="menu-item" data-name="Vanilla Shake" data-price="150">Vanilla Shake <span class="price">₹150</span></div>
+      <div class="menu-item" data-name="Kitkat Shake" data-price="200">Kitkat Shake <span class="price">₹200</span></div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Desserts</h2>
+    <div class="subcategory">
+         <h3>Other's</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Brownie" data-price="150">Brownie <span class="price">₹150</span></div>
+      <div class="menu-item" data-name="Jar Cake" data-price="100">Jar Cake <span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Swiss Rolls" data-price="140">Swiss Rolls <span class="price">₹140</span></div>
+      <div class="menu-item" data-name="Cup cake" data-price="100">Cup Cake <span class="price">₹100</span></div>
+    </div>
+  </div>
+   <div class="subcategory">
+    <h3>Ice-Cream's</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Chocolate" data-price="150">Chocolate<span class="price">₹150</span></div>
+      <div class="menu-item" data-name="Butterscotch" data-price="100">Butterscotch<span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Strawberry" data-price="100">Strawberry<span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Vanilla" data-price="120">Vanilla<span class="price">₹120</span></div>
+      <div class="menu-item" data-name="Ferrero Rocher" data-price="200">Ferrero Rocher <span class="price">₹200</span></div>
+      <div class="menu-item" data-name="Oreo" data-price="180">Oreo <span class="price">₹180</span></div>
+      <div class="menu-item" data-name="Black-Current" data-price="140">Black-Current <span class="price">₹140</span></div>
+
+      
+
+    </div>
+  </div>
+   <div class="subcategory">
+    <h3>Pastry</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Chocolate Truffle" data-price="150">Chocolate Truffle<span class="price">₹150</span></div>
+      <div class="menu-item" data-name="Choco-Puff" data-price="100">Choco-Puff<span class="price">₹100</span></div>
+      <div class="menu-item" data-name="Chocolate-Croissants" data-price="120">Chocolate-Croissants<span class="price">₹120</span></div>
+      <div class="menu-item" data-name="Vanilla" data-price="120">Vanilla<span class="price">₹120</span></div>
+      <div class="menu-item" data-name="Pineapple" data-price="120">Pineapple <span class="price">₹120</span></div>
+      <div class="menu-item" data-name="Chocolate Fudge" data-price="150">Chocolate Fudge<span class="price">₹150</span></div>
+      <div class="menu-item" data-name="Black-forest" data-price="120">Black-Forest<span class="price">₹120</span></div>
+
+      
+
+    </div>
+  </div>
+     <div class="subcategory">
+    <h3>Pastry</h3>
+    <div class="menu-grid">
+      <div class="menu-item" data-name="Chicken puff" data-price="60">Chicken puff<span class="price">₹60</span></div>
+      <div class="menu-item" data-name="Veg puff" data-price="35">veg puff<span class="price">₹35</span></div>
+      <div class="menu-item" data-name="Paneer puff" data-price="50">Paneer puff<span class="price">₹50</span></div>
+      <div class="menu-item" data-name="Mushroom puff" data-price="55">Mushroom puff<span class="price">₹55</span></div>
+      <div class="menu-item" data-name="Egg puff" data-price="40">Egg puff <span class="price">₹40</span></div>
+    </div>
+  </div>
+
+  <div id="total">Total: ₹0</div>
+
+  <button id="next-btn">Next</button>
+
+ <script>
+  const items = document.querySelectorAll(".menu-item");
+  const totalDisplay = document.getElementById("total");
+  const selectedItems = {};
+  let total = 0;
+
+  items.forEach(item => {
+    const name = item.getAttribute("data-name");
+    const price = parseInt(item.getAttribute("data-price"));
+
+    // Create quantity controls
+    const quantityWrapper = document.createElement("div");
+    quantityWrapper.classList.add("quantity-controls");
+    quantityWrapper.style.display = "flex";
+    quantityWrapper.style.justifyContent = "center";
+    quantityWrapper.style.alignItems = "center";
+    quantityWrapper.style.gap = "8px";
+    quantityWrapper.style.marginTop = "10px";
+
+    const minusBtn = document.createElement("button");
+    minusBtn.textContent = "−";
+    minusBtn.style.padding = "2px 8px";
+    minusBtn.style.fontSize = "18px";
+    minusBtn.style.cursor = "pointer";
+
+    const qtySpan = document.createElement("span");
+    qtySpan.textContent = "0";
+    qtySpan.style.minWidth = "20px";
+
+    const plusBtn = document.createElement("button");
+    plusBtn.textContent = "+";
+    plusBtn.style.padding = "2px 8px";
+    plusBtn.style.fontSize = "18px";
+    plusBtn.style.cursor = "pointer";
+
+    quantityWrapper.appendChild(minusBtn);
+    quantityWrapper.appendChild(qtySpan);
+    quantityWrapper.appendChild(plusBtn);
+    item.appendChild(quantityWrapper);
+
+    // Handle +
+    plusBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (!selectedItems[name]) {
+        selectedItems[name] = { price: price, quantity: 1 };
+        item.classList.add("selected");
+      } else {
+        selectedItems[name].quantity += 1;
+      }
+
+      total += price;
+      qtySpan.textContent = selectedItems[name].quantity;
+      updateTotal();
+    });
+
+    // Handle −
+    minusBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (selectedItems[name]) {
+        selectedItems[name].quantity -= 1;
+        total -= price;
+
+        if (selectedItems[name].quantity <= 0) {
+          delete selectedItems[name];
+          qtySpan.textContent = "0";
+          item.classList.remove("selected");
+        } else {
+          qtySpan.textContent = selectedItems[name].quantity;
+        }
+
+        updateTotal();
+      }
+    });
+  });
+
+  function updateTotal() {
+    totalDisplay.textContent = `Total: ₹${total}`;
+  }
+
+  document.getElementById("next-btn").addEventListener("click", () => {
+    const preorderArray = Object.entries(selectedItems).map(([name, data]) => {
+      return `${name} x${data.quantity} - ₹${data.price * data.quantity}`;
+    });
+
+    localStorage.setItem("preorder", JSON.stringify(preorderArray));
+    localStorage.setItem("preorderDetails", JSON.stringify(selectedItems));
+    localStorage.setItem("preorderTotal", total);
+    window.location.href = "table.html";
+  });
+</script>
+
+
+</body>
+</html>

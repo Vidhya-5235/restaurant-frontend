@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breakfast Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+  <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+  <!-- Breakfast Items -->
+  <div class="breaksub">
+    <ul>
+     <li><a href="dosa1.html"><img src="images/dosa.jpg" width="200px" height="200px" ></a><h3 height="1000px">DOSA</h3><br><h2>
+        <i>Dosa brings the yum to your tum..!</i></h2><br>
+      <li>
+        <a href="idli.html"><img src="images/ldli.jpg" width="200" height="200"></a>
+        <h3>IDLI</h3>
+        <h2>₹30</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="IDLI" data-price="30" data-image="images/ldli.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="poori.html"><img src="images/poori.jpg" width="200" height="200"></a>
+        <h3>POORI</h3>
+        <h2>₹30</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="POORI" data-price="30" data-image="images/poori.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="uta.html"><img src="images/utappam.jpg" width="200" height="200"></a>
+        <h3>UTAPPAM</h3>
+        <h2>₹70</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="UTAPPAM" data-price="70" data-image="images/utappam.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="bonda.html"><img src="images/bonda.jpg" width="200" height="200"></a>
+        <h3>BONDA</h3>
+        <h2>₹40</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="BONDA" data-price="40" data-image="images/bonda.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="gaare.html"><img src="images/gaare.jpg" width="200" height="200"></a>
+        <h3>GAARE</h3>
+        <h2>₹30</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="GAARE" data-price="30" data-image="images/gaare.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="kic.html"><img src="images/lichidi.jpg" width="200" height="200"></a>
+        <h3>KICHIDI</h3>
+        <h2>₹60</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="KICHIDI" data-price="60" data-image="images/lichidi.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="pon.html"><img src="images/pongal.jpg" width="200" height="200"></a>
+        <h3>PONGAL</h3>
+        <h2>₹50</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="PONGAL" data-price="50" data-image="images/pongal.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="oni.html"><img src="images/onion.jpg" width="200" height="200"></a>
+        <h3>ONION SPECIAL DOSA</h3>
+        <h2>₹60</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="ONION SPECIAL DOSA" data-price="60" data-image="images/onion.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

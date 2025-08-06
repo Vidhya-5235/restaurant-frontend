@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+    <style>
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color:peachpuff;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  width: 200px;
+  height: 180px;
+  max-width: 100%;
+}
+
+
+.menu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu1 ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu1 ul li {
+  border-left: 5px solid lavenderblush;
+  background-color: lavender;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu1 ul li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+.menu1 ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu1 ul li a i {
+  font-size: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .menu1 {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu1 ul {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .menu1 ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .menu1 ul li a {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+
+  .menu1 ul li a {
+    font-size: 16px;
+  }
+
+  .menu1 ul li a i {
+    font-size: 18px;
+  }
+}
+
+.orderhed {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.orderhed h2 {
+  font-size: 28px;
+  color: #343a40;
+}
+
+.orderdet {
+  width: 90%;
+  max-width: 900px;
+ margin: 50px auto 30px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: lavender;
+}
+
+thead th {
+  padding: 15px;
+  font-size: 18px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+tbody td {
+  padding: 12px 15px;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+tfoot td {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+tfoot td:last-child {
+  color: #28a745;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orderhed h2 {
+    font-size: 24px;
+  }
+
+  thead th, tbody td, tfoot td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orderhed h2 {
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+
+}
+.checkbtn
+{
+  background-color:white;
+  border-radius:5px;
+  padding:7px 12px;
+  cursor: pointer;
+  background-color: #28a745;
+  color:white;
+   border: none;
+   font-size:14px;
+}
+.closebtn
+{
+  background-color:white;
+  border-radius:5px;
+  padding:7px 12px;
+  cursor: pointer;
+  background-color: #bd2130;
+  color:white;
+   border: none;
+   font-size:14px;
+}
+@media (max-width: 480px) {
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-buttons .checkbtn,
+  .cart-buttons .closebtn {
+    width: 100%;
+    max-width: 200px;
+
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="navbar1">
+      <img src="images/logoin.png" alt="Logo"  class="logo">
+    </div>
+    <div class="menu1">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+      </ul>
+    </div>
+  </header>
+
+ <div class="orderdet">
+  <table id="order-summary" border="1" cellpadding="10" cellspacing="0" style="width: 90%; margin: auto; text-align: center;">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price (₹)</th>
+        <th>Subtotal (₹)</th>
+      </tr>
+    </thead>
+    <tbody id="order-body">
+      <!-- Items will be inserted here by JavaScript -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+        <td id="grand-total"><strong>₹0</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+   <div class="cart-buttons">
+  <a href="pay.html"><button class="checkbtn" type="button">Buy Now</button></a>
+  <button class="closebtn" type="button" onclick="history.back()">Close</button>
+</div>
+</div>
+
+  
+</body>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const orderBody = document.getElementById("order-body");
+  const grandTotal = document.getElementById("grand-total");
+
+  let total = 0;
+
+  if (cart.length === 0) {
+    orderBody.innerHTML = `<tr><td colspan="4">Your cart is empty.</td></tr>`;
+    grandTotal.innerHTML = `<strong>₹0</strong>`;
+  } else {
+    cart.forEach(item => {
+      const subtotal = item.quantity * item.price;
+      total += subtotal;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>₹${item.price}</td>
+        <td>₹${subtotal}</td>
+      `;
+      orderBody.appendChild(row);
+    });
+
+    grandTotal.innerHTML = `<strong>₹${total}</strong>`;
+  }
+</script>
+
+</html>

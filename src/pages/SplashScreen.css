@@ -1,0 +1,58 @@
+/* Base Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: none; /* Set fallback bg */
+}
+
+.splash-container {
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  background-color: black;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video styling: show full video */
+.splash-video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;  /* shows full video, may add black bars */
+  border-radius: 12px;
+  background-color: black; /* fill gaps if any */
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .splash-container {
+    margin: 10px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    border-radius: 10px;
+  }
+
+  .splash-video {
+    border-radius: 10px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .splash-container {
+    margin: 5px;
+    width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
+    border-radius: 8px;
+  }
+
+  .splash-video {
+    border-radius: 8px;
+  }
+}

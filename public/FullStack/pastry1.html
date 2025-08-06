@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pastry Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+  <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+  <!-- Pastry Items -->
+  <div class="breaksub">
+    <ul>
+      <li>
+        <a href="pastry.html"><img src="images/truffle.jpg" width="200" height="200"></a>
+        <h3>CHOCOLATE TRUFFLE</h3>
+        <h2>₹150</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHOCOLATE TRUFFLE" data-price="150" data-image="images/truffle.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="blackfor.html"><img src="images/blackfor.jpg" width="200" height="200"></a>
+        <h3>BLACK-FOREST</h3>
+        <h2>₹120</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="BLACK-FOREST" data-price="120" data-image="images/blackfor.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="chocopuff.html"><img src="images/chocpuff.jpg" width="200" height="200"></a>
+        <h3>CHOCO-PUFF</h3>
+        <h2>₹100</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHOCO-PUFF" data-price="100" data-image="images/chocpuff.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="cross.html"><img src="images/croissants.jpg" width="200" height="200"></a>
+        <h3>CHOCOLATE CROISSANTS</h3>
+        <h2>₹120</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHOCOLATE CROISSANTS" data-price="120" data-image="images/croissants.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="vanpas.html"><img src="images/vanpas.jpg" width="200" height="200"></a>
+        <h3>VANILLA</h3>
+        <h2>₹120</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="VANILLA" data-price="120" data-image="images/vanpas.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="pine.html"><img src="images/pine.jpg" width="200" height="200"></a>
+        <h3>PINEAPPLE</h3>
+        <h2>₹120</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="PINEAPPLE" data-price="120" data-image="images/pine.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="fudge.html"><img src="images/fudge.jpg" width="200" height="200"></a>
+        <h3>CHOCOLATE FUDGE</h3>
+        <h2>₹150</h2>
+        <div class="stars">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+        </div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHOCOLATE FUDGE" data-price="150" data-image="images/fudge.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+<!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

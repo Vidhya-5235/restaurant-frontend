@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="register.js"></script>
+    <style>
+body.regimg {
+  background-image: url('images/download.jpg');
+  background-size: fit; /* Or use 'contain' if you want to see the whole image */
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 250px;
+  overflow-y: auto;
+}
+
+
+.register-container {
+  background-color: bisque;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.register-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+
+.register-container button {
+  width: 80%;
+  padding: 10px;
+  margin-left: 10%;
+  background-color: grey;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.resgister-container p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.register-container a {
+  color: blue;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  body.regimg {
+    padding-top: 200px;
+  }
+
+  .register-container {
+    margin-top: 10px;
+  }
+}
+    </style>
+</head>
+<body class="regimg">
+
+    <div class="register-container">
+        <h2>Register</h2>
+        <form action="http://localhost:8081/loginpro/Registerservlet" method="POST">
+    <label>Username:</label><br>
+    <input type="text" name="username" required><br>
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+    <button type="submit">Register</button>
+        </form>
+        </form>
+        <p>Already have an acmilli? <a href="login1.html">Login</a></p>
+    </div>
+
+</body>
+</html>
+</html>

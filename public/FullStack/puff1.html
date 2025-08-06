@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puffs Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+ <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+
+  <!-- Puff Items -->
+  <div class="dessub3">
+    <ul>
+      <li>
+        <a href="puff.html"><img src="images/chipuff.jpg" width="200" height="200" /></a>
+        <h3>CHICKEN PUFF</h3>
+        <h2>₹60</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="CHICKEN PUFF" data-price="60" data-image="images/chipuff.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="vpuff.html"><img src="images/vegpuff.jpg" width="200" height="200" /></a>
+        <h3>VEG PUFF</h3>
+        <h2>₹35</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="VEG PUFF" data-price="35" data-image="images/vegpuff.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="epuff.html"><img src="images/eggpuff.jpg" width="200" height="200" /></a>
+        <h3>EGG PUFF</h3>
+        <h2>₹40</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="EGG PUFF" data-price="40" data-image="images/eggpuff.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="ppuff.html"><img src="images/panpuff.jpg" width="200" height="200" /></a>
+        <h3>PANEER PUFF</h3>
+        <h2>₹50</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="PANEER PUFF" data-price="50" data-image="images/panpuff.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="mpuff.html"><img src="images/muspuff.jpg" width="200" height="200" /></a>
+        <h3>MUSHROOM PUFF</h3>
+        <h2>₹55</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="MUSHROOM PUFF" data-price="55" data-image="images/muspuff.jpg">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+<!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

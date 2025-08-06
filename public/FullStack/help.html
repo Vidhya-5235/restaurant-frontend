@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help & Support</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Header styling matching cart.html */
+   .header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color:peachpuff;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  width: 250px;
+  height: 180px;
+  max-width: 100%;
+}
+
+
+.menu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu1 ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu1 ul li {
+  border-left: 5px solid lavenderblush;
+  background-color: lavender;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu1 ul li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.menu1 ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu1 ul li a i {
+  font-size: 10px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .menu1 {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu1 ul {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .menu1 ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .menu1 ul li a {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+
+  .menu1 ul li a {
+    font-size: 16px;
+  }
+
+  .menu1 ul li a i {
+    font-size: 18px;
+  }
+}
+
+    .help-container {
+      margin: 100px auto 40px auto; /* Matches cart-container margin */
+      width: 90%;
+      max-width: 800px;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .help-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+      color: #343a40;
+    }
+
+    .faq {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+
+    .faq h3 {
+      cursor: pointer;
+      margin: 0;
+      padding: 10px;
+      background-color: #eee;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    .faq p {
+      display: none;
+      margin: 10px 0 0 0;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-left: 3px solid #007bff;
+      font-size: 16px;
+    }
+
+    .faq.open p {
+      display: block;
+    }
+
+    .contact {
+      margin-top: 30px;
+    }
+
+    .contact h2 {
+      margin-bottom: 10px;
+    }
+
+    .contact p {
+      margin: 5px 0;
+      color: #495057;
+    }
+.comment-box {
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comment-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.comment-box label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.comment-box textarea {
+  width: 95%;
+  padding: 10px;
+  font-size: 15px;
+  border: 5px solid grey;
+  border-radius: 8px;
+  resize: vertical;
+  margin-top: 8px;
+  background-color: white;
+}
+
+.comment-box button {
+  margin-top: 15px;
+  background-color: grey;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.comment-box button:hover {
+  background-color: darkslategray;
+  transition: background-color 0.3s ease;
+}
+
+#commentResult {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #eafbe7;
+  border-left: 4px solid grey;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+
+    /* Responsive for smaller screens */
+    @media (max-width: 600px) {
+      .menu1 ul {
+        flex-direction: grid;
+        gap: 10px;
+      }
+
+      .menu1 ul li {
+        width: 100%;
+      }
+    }
+
+    .comment-box input[type="text"],
+    .comment-box input[type="email"] {
+      width: 95%;
+      padding: 10px;
+      font-size: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="navbar1">
+      <img src="images/logoin.png" alt="Logo" width="250" height="150"  class="logo">
+    </div>
+    <div class="menu1">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+      </ul>
+    </div>
+  </header>
+
+  <div class="help-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq">
+      <h3>How do I place an order?</h3>
+      <p>To place an order, browse the menu, add items to your cart, and proceed to checkout.</p>
+    </div>
+
+    <div class="faq">
+      <h3>How do I update my cart?</h3>
+      <p>Click on the cart icon. You can change item quantities or remove them before checking out.</p>
+    </div>
+
+    <div class="faq">
+      <h3>Do I need to log in?</h3>
+      <p>Yes, logging in helps us track your order and provide better service.</p>
+    </div>
+
+    <div class="faq">
+      <h3>How can I contact support?</h3>
+      <p>You can contact support via the details below or through the contact form.</p>
+    </div>
+
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p>E-Mail: amigosrestuarant123@gmail.com</p>
+      <p>Phone no: +91 7093216105</p>
+      <p>Hours: 9 AM – 10 PM (Mon–Sat)</p>
+      <p>Hours: 9 AM – 11 PM (Sun)</p>  
+
+    </div>
+  </div>
+ <div class="comment-box">
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+      <label for="name">Your Name:</label><br />
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="email">Your Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="comment">Your Comment:</label><br />
+      <textarea id="comment" name="comment" rows="5" required></textarea><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="commentResult"></div>
+  </div>
+
+ <script>
+    document.getElementById('commentForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+
+      if (!name || !email || !comment) return;
+
+      fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, comment }),
+      })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to send");
+        return res.json();
+      })
+      .then((data) => {
+        document.getElementById('commentResult').innerHTML = `
+          ✅ <strong>Thank you, ${name}!</strong><br>Your message has been sent.
+        `;
+        document.getElementById('commentForm').reset();
+      })
+      .catch((err) => {
+        console.error("Send error:", err);
+        document.getElementById('commentResult').innerHTML = `
+          ❌ <strong>Error:</strong> Could not send your message. Please try again.
+        `;
+      });
+    });
+  </script>
+
+
+
+</body>
+</html>

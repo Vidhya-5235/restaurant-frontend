@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+    <style>
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color:peachpuff;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  width: 250px;
+  height: 180px;
+  max-width: 100%;
+}
+
+
+.menu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.menu1 ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu1 ul li {
+  border-left: 5px solid lavenderblush;
+  background-color: lavender;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.menu1 ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu1 ul li a i {
+  font-size: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .menu1 {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu1 ul {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .menu1 ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .menu1 ul li a {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+
+  .menu1 ul li a {
+    font-size: 16px;
+  }
+
+  .menu1 ul li a i {
+    font-size: 18px;
+  }
+}
+
+
+.payment-section {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 900px;
+  text-align: center;
+}
+
+.payment-section h2 {
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #333;
+}
+
+.payment-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.payment-card {
+  background-color: #ffe4c4; /* light peach */
+  padding: 20px;
+  border-radius: 12px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit; /* Ensure text color stays consistent */
+
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.payment-card i {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment-card p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.payment-card a
+{
+    text-decoration:none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .payment-card {
+    width: 100%;
+  }
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+
+}
+
+.closebtn
+{
+  background-color:white;
+  border-radius:5px;
+  padding:12px 15px;
+  cursor: pointer;
+  background-color: #bd2130;
+  color:white;
+   border: none;
+   font-size:20px;
+}
+
+@media (max-width: 480px) {
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .cart-buttons .closebtn
+  {
+    width: 100%;
+    max-width: 200px;
+
+  }
+}
+
+
+</style>
+</head>
+<body>
+    
+  <header class="header">
+    <div class="navbar1">
+      <img src="images/logoin.png" alt="Logo"  class="logo">
+    </div>
+    <div class="menu1">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li class="logout-item" onclick="confirmLogout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  <span>Logout</span>
+</li>
+
+<script>
+  function confirmLogout() {
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
+    }
+    // else do nothing, user stays on same page
+  }
+</script>
+      </ul>
+    </div>
+  </header>
+
+
+  <section class="payment-section">
+  <h1><i>Select a Payment Method</i></h1>
+  <div class="payment-options">
+    <a href="credit.html" class="payment-card">
+  <i class="fa-solid fa-credit-card"></i>
+  <p>Credit / Debit Card</p>
+</a>
+ <a href="upi.html" class="payment-card">
+  <i class="fa-solid fa-qrcode"></i>
+  <p>UPI Scanner</p>
+</a>
+   
+    <a href="cash.html" class="payment-card">
+  <i class="fa-solid fa-money-bill-wave"></i>
+  <p>Cash on Delivery</p>
+</a>
+  </div>
+  <h3>If there is no cash with you...you have to work for 3 hours in our restuarant <i class="fa-solid fa-face-laugh-wink"></i></h3>
+</section>
+ <div class="cart-buttons">
+  <button class="closebtn" type="button" onclick="history.back()">Close</button>
+</div>
+
+
+</body>
+</html>

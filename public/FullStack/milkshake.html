@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Milkshake Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+ <header class="header">
+    <div class="navbar">
+        <img src="images/logoin.png" alt="logo" class="logo"width="250px" height="150px" >
+     </div>
+     <div class="menu">
+        <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i><h2>Home</h2></a></li>
+        <li><a href="help.html"><i class="fa-solid fa-circle-info"></i><h2>Help</h2></a></li>
+
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><h2>Cart</h2></a></li>
+        <li><a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i><h2>Logout</h2></a></li>
+        </ul>
+     </div>
+   </header>
+
+  <!-- Milkshake Items -->
+  <div class="milksub">
+    <ul>
+      <li>
+        <a href="vanilla.html"><img src="images/vanilla.jpg" width="200" height="200" /></a>
+        <h3>VANILLA MILKSHAKE</h3>
+        <h2>₹150</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Vanilla Milkshake" data-price="150" data-image="images/vanilla.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="browine.html"><img src="images/Brownie-Milkshake-1.jpg" width="200" height="200" /></a>
+        <h3>BROWNIE MILKSHAKE</h3>
+        <h2>₹250</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Brownie Milkshake" data-price="250" data-image="images/Brownie-Milkshake-1.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="straw.html"><img src="images/StrawberryMilkshake_RECIPE_053123_3599.webp" width="200" height="200" /></a>
+        <h3>STRAWBERRY MILKSHAKE</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Strawberry Milkshake" data-price="100" data-image="images/StrawberryMilkshake_RECIPE_053123_3599.webp">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="orea.html"><img src="images/chocolate_oreo_shake.jpg" width="200" height="200" /></a>
+        <h3>OREO MILKSHAKE</h3>
+        <h2>₹200</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Oreo Milkshake" data-price="200" data-image="images/chocolate_oreo_shake.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="kit.html"><img src="images/kitkat.webp" width="200" height="200" /></a>
+        <h3>KITKAT SHAKE</h3>
+        <h2>₹200</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Kitkat Shake" data-price="200" data-image="images/kitkat.webp">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="choco.html"><img src="images/Chocolate-Milkshake-Recipe-11.jpg" width="200" height="200" /></a>
+        <h3>CHOCOLATE MILKSHAKE</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Chocolate Milkshake" data-price="100" data-image="images/Chocolate-Milkshake-Recipe-11.jpg">Add to Cart</button>
+      </li>
+
+      <li>
+        <a href="butter.html"><img src="images/Butterscotch-Milkshake.webp" width="200" height="200" /></a>
+        <h3>BUTTERSCOTCH MILKSHAKE</h3>
+        <h2>₹100</h2>
+        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <input type="number" value="1" min="1" />
+        <button class="btn btn-primary add-to-cart" data-name="Butterscotch Milkshake" data-price="100" data-image="images/Butterscotch-Milkshake.webp">Add to Cart</button>
+      </li>
+    </ul>
+  </div>
+<!-- Notification Message -->
+<div id="cart-message">Item added to cart!</div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

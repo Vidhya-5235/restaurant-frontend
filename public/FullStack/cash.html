@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cash on Delivery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-box {
+      background-color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    .form-box h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Cash on Delivery</h2>
+    <form id="payment-form">
+      <input id="name" type="text" placeholder="Full Name" required />
+      <input id="email" type="email" placeholder="E-mail" required />
+      <input id="phone" type="tel" placeholder="Phone Number" required />
+      <input id="amount" type="number" placeholder="Amount ₹" readonly />
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    // Autofill amount
+    document.addEventListener("DOMContentLoaded", () => {
+      const total = localStorage.getItem("cartTotal");
+      document.getElementById("amount").value = total || 0;
+    });
+
+    // Submit form and store order in MongoDB
+    document.getElementById("payment-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        amount: parseFloat(document.getElementById("amount").value),
+        paymentMethod: "Cash on Delivery"
+      };
+
+      try {
+        const response = await fetch("http://localhost:5000/pay", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Clear cart only after success
+          localStorage.removeItem("cart");
+          localStorage.removeItem("cartTotal");
+
+          // Redirect to success page
+          window.location.href = data.redirect;
+        } else {
+          alert(data.message || "Order failed. Please try again.");
+        }
+      } catch (err) {
+        console.error("❌ Network error:", err);
+        alert("Something went wrong. Please try again later.");
+      }
+    });
+  </script>
+</body>
+</html>
