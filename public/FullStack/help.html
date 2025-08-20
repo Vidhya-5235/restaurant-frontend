@@ -123,12 +123,13 @@
     });
   });
 
-  // Confirm logout
   function confirmLogout() {
-    if (confirm("Do you really want to logout?")) {
-      localStorage.removeItem("user");
-      window.location.href = "login.html"; // redirect to your login page
+    const shouldLogout = confirm("Do you really want to logout?");
+    if (shouldLogout) {
+      localStorage.removeItem("user"); // Clear session/localStorage
+      window.location.href = "/login"; // Redirect to login route
     }
+    // else do nothing, user stays on same page
   }
 
   // Feedback form
