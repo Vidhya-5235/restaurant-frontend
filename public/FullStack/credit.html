@@ -71,7 +71,10 @@
     </form>
   </div>
 
-  <script>
+  <script type="module">
+    // ✅ Use environment variable for backend
+    const API_URL = import.meta.env.VITE_API_URL;
+
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("payment-form");
       const amountInput = document.getElementById("amount");
@@ -90,11 +93,11 @@
           email: form.email.value,
           phone: form.phone.value,
           amount: parseFloat(form.amount.value),
-          paymentMethod: "card"
+          paymentMethod: "Card"
         };
 
         try {
-          const res = await fetch("http://localhost:5000/pay", {
+          const res = await fetch(`${API_URL}/pay`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -102,13 +105,16 @@
 
           const result = await res.json();
           if (res.ok) {
-            window.location.href = "suc.html?clearCart=true";
+            // Clear cart after success
+            localStorage.removeItem("cart");
+            localStorage.removeItem("cartTotal");
+            window.location.href = "cashsuc.html?clearCart=true";
           } else {
-            alert(result.message || "Payment failed.");
+            alert(result.message || "Payment failed. Try again.");
           }
         } catch (err) {
-          console.error(err);
-          alert("Something went wrong!");
+          console.error("❌ Network error:", err);
+          alert("Something went wrong. Please try again later.");
         }
       });
     });

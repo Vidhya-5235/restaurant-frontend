@@ -7,8 +7,7 @@ function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
 
-  // ✅ Backend URL from environment variable
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL; // backend URL
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -16,17 +15,19 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg(""); // Clear previous errors
+    setErrorMsg("");
 
     try {
-      const res = await axios.post(`${API_URL}/login`, user);
+      const res = await axios.post(`${API_URL}/login`, user, {
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (res.data.message.startsWith("Welcome")) {
-        // ✅ Optional: store logged-in user info
+        // store logged-in user
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userName", res.data.message.split(",")[1]?.trim());
 
-        // Redirect to main restaurant page
+        // redirect to main page
         window.location.href = "/FullStack/index.html";
       } else {
         setErrorMsg(res.data.message || "Login failed. Try again.");
@@ -66,7 +67,6 @@ function Login() {
           <button type="submit">Login</button>
         </form>
 
-        {/* Display error message */}
         {errorMsg && <p style={{ color: "red", marginTop: "10px" }}>{errorMsg}</p>}
 
         <p style={{ marginTop: "10px" }}>

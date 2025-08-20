@@ -69,7 +69,6 @@
   <div class="upi-box">
     <h2>Scan & Pay via UPI</h2>
 
-    <!-- Replace with your actual QR code -->
     <img class="qr-code" src="images/qrcode.jpg" alt="QR Code Not Found" />
 
     <p style="margin-bottom: 10px; font-weight: bold;">
@@ -86,13 +85,14 @@
     </form>
   </div>
 
-  <script>
+  <script type="module">
+    const API_URL = import.meta.env.VITE_API_URL;
+
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("payment-form");
       const amountInput = document.getElementById("amount");
       const storedAmount = localStorage.getItem("cartTotal");
 
-      // Autofill amount
       if (amountInput && storedAmount) {
         amountInput.value = storedAmount;
       }
@@ -105,11 +105,11 @@
           email: form.email.value,
           phone: form.phone.value,
           amount: parseFloat(form.amount.value),
-          paymentMethod: "upi"
+          paymentMethod: "UPI"
         };
 
         try {
-          const res = await fetch("http://localhost:5000/pay", {
+          const res = await fetch(`${API_URL}/pay`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -117,15 +117,14 @@
 
           const result = await res.json();
           if (res.ok) {
-            // On successful payment
             localStorage.removeItem("cart");
             localStorage.removeItem("cartTotal");
-            window.location.href = "suc.html?clearCart=true";
+            window.location.href = "cashsuc.html?clearCart=true";
           } else {
-            alert(result.message || "Payment failed. Please try again.");
+            alert(result.message || "Payment failed. Try again.");
           }
         } catch (err) {
-          console.error(err);
+          console.error("❌ Network error:", err);
           alert("Server error. Please try again later.");
         }
       });

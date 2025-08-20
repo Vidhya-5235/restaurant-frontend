@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
 import "./register.css";
 
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL; // backend URL
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,8 +19,9 @@ function Register() {
     setErrorMsg("");
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/register`, form);
-
+      const res = await axios.post(`${API_URL}/register`, form, {
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (res.data.message === "User registered successfully") {
         alert("✅ Registration successful! Please login.");
@@ -69,9 +71,9 @@ function Register() {
           <button type="submit">Register</button>
         </form>
 
-        {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
+        {errorMsg && <p style={{ color: "red", marginTop: "10px" }}>{errorMsg}</p>}
 
-        <p>
+        <p style={{ marginTop: "10px" }}>
           Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
