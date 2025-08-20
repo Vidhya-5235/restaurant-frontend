@@ -5,12 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cash on Delivery</title>
   <style>
-    body { font-family: Arial; background:#f3f3f3; display:flex; justify-content:center; align-items:center; height:100vh; }
-    .form-box { background:white; padding:25px 40px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:90%; max-width:400px; }
-    .form-box h2 { text-align:center; margin-bottom:20px; }
-    input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px; }
-    button { background:#007bff; border:none; padding:10px; color:white; width:100%; border-radius:5px; font-weight:bold; cursor:pointer; }
-    button:hover { background:#0056b3; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-box {
+      background-color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -26,20 +60,27 @@
   </div>
 
   <script type="module">
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL; // Your backend URL
 
     document.addEventListener("DOMContentLoaded", () => {
-      const total = localStorage.getItem("cartTotal");
-      document.getElementById("amount").value = total || 0;
+      // Autofill amount from cartTotal
+      const total = parseFloat(localStorage.getItem("cartTotal")) || 0;
+      document.getElementById("amount").value = total;
 
-      document.getElementById("payment-form").addEventListener("submit", async (e) => {
+      const form = document.getElementById("payment-form");
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        if (total <= 0) {
+          alert("Your cart is empty!");
+          return;
+        }
 
         const formData = {
           name: document.getElementById("name").value,
           email: document.getElementById("email").value,
           phone: document.getElementById("phone").value,
-          amount: parseFloat(document.getElementById("amount").value),
+          amount: total,
           paymentMethod: "Cash on Delivery"
         };
 
@@ -51,6 +92,7 @@
           });
 
           const data = await res.json();
+
           if (res.ok) {
             alert("✅ Order placed! Check your email for confirmation.");
             localStorage.removeItem("cart");
@@ -60,7 +102,7 @@
             alert(data.message || "Something went wrong. Try again.");
           }
         } catch (err) {
-          console.error(err);
+          console.error("Server error:", err);
           alert("Server error. Please try again later.");
         }
       });

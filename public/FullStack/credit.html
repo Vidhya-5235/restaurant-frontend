@@ -3,26 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Card Payment</title>
+  <title>Credit/Debit Card Payment</title>
   <style>
-    body { font-family: Arial; background:#f9f9f9; display:flex; justify-content:center; align-items:center; padding:40px 20px; flex-direction:column; }
-    .card-box { background:white; padding:25px 40px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:100%; max-width:400px; text-align:center; }
-    .card-box h2 { margin-bottom:20px; }
-    input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px; }
-    button { background:#007bff; border:none; padding:10px; color:white; width:100%; border-radius:5px; font-weight:bold; cursor:pointer; }
-    button:hover { background:#0056b3; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      flex-direction: column;
+    }
+
+    .card-box {
+      background-color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .card-box h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
+
   <div class="card-box">
     <h2>Pay via Credit/Debit Card</h2>
     <form id="payment-form">
       <input type="text" name="name" placeholder="Full Name" required />
       <input type="email" name="email" placeholder="Email" required />
       <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input id="amount" type="number" placeholder="Amount ₹" readonly />
+      <input id="amount" name="amount" type="number" placeholder="Amount ₹" readonly />
       <input type="text" name="cardNumber" placeholder="Card Number" required />
-      <input type="text" name="expiry" placeholder="Expiry (MM/YY)" required />
+      <input type="text" name="expiry" placeholder="Expiry Date (MM/YY)" required />
       <input type="text" name="cvv" placeholder="CVV" required />
       <button type="submit">Confirm Payment</button>
     </form>
@@ -34,17 +75,21 @@
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("payment-form");
       const amountInput = document.getElementById("amount");
-      const total = localStorage.getItem("cartTotal");
-      amountInput.value = total || 0;
+      const storedAmount = parseFloat(localStorage.getItem("cartTotal")) || 0;
+      amountInput.value = storedAmount;
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        if (storedAmount <= 0) {
+          alert("Your cart is empty!");
+          return;
+        }
 
         const data = {
           name: form.name.value,
           email: form.email.value,
           phone: form.phone.value,
-          amount: parseFloat(form.amount.value),
+          amount: storedAmount,
           paymentMethod: "card"
         };
 
@@ -57,7 +102,7 @@
 
           const result = await res.json();
           if (res.ok) {
-            alert("✅ Payment successful! Check your email.");
+            alert("✅ Payment successful! Check your email for confirmation.");
             localStorage.removeItem("cart");
             localStorage.removeItem("cartTotal");
             window.location.href = "suc.html";
@@ -65,11 +110,12 @@
             alert(result.message || "Payment failed. Try again.");
           }
         } catch (err) {
-          console.error(err);
-          alert("Server error. Try again later.");
+          console.error("Server error:", err);
+          alert("Server error. Please try again later.");
         }
       });
     });
   </script>
+
 </body>
 </html>
