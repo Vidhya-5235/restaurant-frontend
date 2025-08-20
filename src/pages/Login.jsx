@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-
 import "./login.css";
 
 function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
-  const API_URL = import.meta.env.VITE_API_URL; // backend URL
+
+  // ✅ Backend URL from environment variable
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -14,14 +16,15 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg(""); // clear previous errors
+    setErrorMsg(""); // Clear previous errors
 
     try {
       const res = await axios.post(`${API_URL}/login`, user);
 
       if (res.data.message.startsWith("Welcome")) {
-        // Optional: store logged-in user info
+        // ✅ Optional: store logged-in user info
         localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userName", res.data.message.split(",")[1]?.trim());
 
         // Redirect to main restaurant page
         window.location.href = "/FullStack/index.html";
@@ -63,9 +66,10 @@ function Login() {
           <button type="submit">Login</button>
         </form>
 
-        {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
+        {/* Display error message */}
+        {errorMsg && <p style={{ color: "red", marginTop: "10px" }}>{errorMsg}</p>}
 
-        <p>
+        <p style={{ marginTop: "10px" }}>
           Don't have an account? <Link to="/register">Sign up</Link>
         </p>
       </div>

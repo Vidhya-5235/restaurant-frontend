@@ -18,7 +18,8 @@ function Register() {
     setErrorMsg("");
 
     try {
-      const res = await axios.post(`${API_URL}/register`, form);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/register`, form);
+
 
       if (res.data.message === "User registered successfully") {
         alert("✅ Registration successful! Please login.");
