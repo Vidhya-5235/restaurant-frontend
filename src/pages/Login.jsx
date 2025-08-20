@@ -1,13 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import "./login.css";
 
 function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
-
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL; // backend URL
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -15,12 +14,16 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg("");
+    setErrorMsg(""); // clear previous errors
+
     try {
       const res = await axios.post(`${API_URL}/login`, user);
 
       if (res.data.message.startsWith("Welcome")) {
+        // Optional: store logged-in user info
         localStorage.setItem("userEmail", user.email);
+
+        // Redirect to main restaurant page
         window.location.href = "/FullStack/index.html";
       } else {
         setErrorMsg(res.data.message || "Login failed. Try again.");
@@ -33,7 +36,11 @@ function Login() {
 
   return (
     <>
-      <img src="/FullStack/images/loginlogo.png" alt="Top Banner" className="top-image" />
+      <img
+        src="/FullStack/images/loginlogo.png"
+        alt="Top Banner"
+        className="top-image"
+      />
       <div className="login-container">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
@@ -55,8 +62,12 @@ function Login() {
           />
           <button type="submit">Login</button>
         </form>
+
         {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
-        <p>Don't have an account? <Link to="/register">Sign up</Link></p>
+
+        <p>
+          Don't have an account? <Link to="/register">Sign up</Link>
+        </p>
       </div>
     </>
   );
