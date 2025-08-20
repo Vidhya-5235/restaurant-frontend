@@ -5,128 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UPI Payment</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f9ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-      flex-direction: column;
-    }
-
-    .upi-box {
-      background-color: white;
-      padding: 25px 40px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .upi-box h2 {
-      margin-bottom: 20px;
-    }
-
-    .qr-code {
-      width: 200px;
-      height: 200px;
-      margin-bottom: 20px;
-      border: 2px solid #ddd;
-      padding: 10px;
-      object-fit: contain;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      background-color: #28a745;
-      border: none;
-      padding: 10px;
-      color: white;
-      width: 100%;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #1e7e34;
-    }
+    body { font-family: Arial; background:#f4f9ff; display:flex; justify-content:center; align-items:center; padding:40px 20px; }
+    .upi-box { background:white; padding:25px 40px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:100%; max-width:400px; text-align:center; }
+    .qr-code { width:200px; height:200px; margin-bottom:20px; border:2px solid #ddd; padding:10px; object-fit:contain; }
+    input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:5px; }
+    button { background:#28a745; border:none; padding:10px; color:white; width:100%; border-radius:5px; font-weight:bold; cursor:pointer; }
+    button:hover { background:#1e7e34; }
   </style>
 </head>
 <body>
 
-  <div class="upi-box">
-    <h2>Scan & Pay via UPI</h2>
-    <img class="qr-code" src="images/qrcode.jpg" alt="QR Code Not Found" />
-    <p style="margin-bottom: 10px; font-weight: bold;">
-      Use PhonePe, Paytm, GPay, or any UPI app to scan and pay
-    </p>
+<div class="upi-box">
+  <h2>Scan & Pay via UPI</h2>
+  <img class="qr-code" src="images/qrcode.jpg" alt="QR Code Not Found" />
+  <form id="payment-form">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <input id="amount" name="amount" type="number" placeholder="Amount ₹" readonly />
+    <button type="submit">Confirm Payment</button>
+  </form>
+</div>
 
-    <form id="payment-form">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input id="amount" name="amount" type="number" placeholder="Amount ₹" readonly />
-      <button type="submit">Confirm Payment</button>
-    </form>
-  </div>
+<script>
+  const API_URL = "https://your-backend.onrender.com";
 
-  <script type="module">
-    const API_URL = import.meta.env.VITE_API_URL;
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("payment-form");
+    const amountInput = document.getElementById("amount");
+    amountInput.value = localStorage.getItem("cartTotal") || 0;
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("payment-form");
-      const amountInput = document.getElementById("amount");
-      const storedAmount = parseFloat(localStorage.getItem("cartTotal")) || 0;
-      amountInput.value = storedAmount;
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (storedAmount <= 0) {
-          alert("Your cart is empty!");
-          return;
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        amount: parseFloat(form.amount.value),
+        paymentMethod: "UPI"
+      };
+
+      try {
+        const res = await fetch(`${API_URL}/pay`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+
+        if (res.ok) {
+          alert("✅ Payment successful! Check your email.");
+          localStorage.removeItem("cart");
+          localStorage.removeItem("cartTotal");
+          window.location.href = "cashsuc.html";
+        } else {
+          alert(result.message || "❌ Payment failed. Try again.");
         }
-
-        const data = {
-          name: form.name.value,
-          email: form.email.value,
-          phone: form.phone.value,
-          amount: storedAmount,
-          paymentMethod: "upi"
-        };
-
-        try {
-          const res = await fetch(`${API_URL}/pay`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-          });
-
-          const result = await res.json();
-          if (res.ok) {
-            alert("✅ Payment successful! Check your email for confirmation.");
-            localStorage.removeItem("cart");
-            localStorage.removeItem("cartTotal");
-            window.location.href = "suc.html";
-          } else {
-            alert(result.message || "Payment failed. Try again.");
-          }
-        } catch (err) {
-          console.error("Server error:", err);
-          alert("Server error. Please try again later.");
-        }
-      });
+      } catch (err) {
+        console.error(err);
+        alert("❌ Server error. Please try again later.");
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
