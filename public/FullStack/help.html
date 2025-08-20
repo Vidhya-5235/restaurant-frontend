@@ -6,128 +6,187 @@
   <title>Help & Support</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
-  <style> /* Header styling matching cart.html */ 
-  
-    .header {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-color:peachpuff;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-     .logo {
-  width: 250px;
-  height: 180px;
-  max-width: 100%;
-}
-
-
-.menu1 {
-  display: flex;
-  align-items: center;
-}
-
-
-.menu1 ul {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-
-.menu1 ul li {
-  border-left: 5px solid lavenderblush;
-  background-color: lavender;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.menu1 ul li:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-
-
-
-.menu1 ul li a {
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-
-.menu1 ul li a i {
-  font-size: 10px;
-}
-
-@media (max-width: 768px) {
+  <style>
+  /* Header & Menu (same as cart.html) */
   .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: peachpuff;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    width: 250px;
+    height: 180px;
+    max-width: 100%;
   }
 
   .menu1 {
-    width: 100%;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
   }
 
   .menu1 ul {
-    flex-direction: column;
-    width: 80%;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
   }
 
   .menu1 ul li {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 18px 25px;
-    font-size: 18px;
+    border-left: 5px solid lavenderblush;
+    background-color: lavender;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .menu1 ul li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   }
 
   .menu1 ul li a {
-    justify-content: flex-start;
-  }
-
-  .logo {
-    width: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    width: 120px;
-  }
-
-  .menu1 ul li {
-    padding: 20px 30px;
+    text-decoration: none;
+    color: black;
     font-size: 20px;
-  }
-
-  .menu1 ul li a {
-    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .menu1 ul li a i {
-    font-size: 18px;
+    font-size: 10px;
   }
-}
 
-.help-container { margin: 100px auto 40px auto; /* Matches cart-container margin */ width: 90%; max-width: 800px; background-color: white; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 10px; } .help-container h1 { text-align: center; margin-bottom: 20px; font-size: 32px; color: #343a40; } .faq { border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px; } .faq h3 { cursor: pointer; margin: 0; padding: 10px; background-color: #eee; border-radius: 5px; font-size: 18px; } .faq p { display: none; margin: 10px 0 0 0; padding: 10px; background-color: #f9f9f9; border-left: 3px solid #007bff; font-size: 16px; } .faq.open p { display: block; } .contact { margin-top: 30px; } .contact h2 { margin-bottom: 10px; } .contact p { margin: 5px 0; color: #495057; } .comment-box { margin: 40px auto; max-width: 800px; background-color: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); } .comment-box h2 { text-align: center; margin-bottom: 15px; color: #343a40; } .comment-box label { font-size: 16px; font-weight: 500; color: #495057; } .comment-box textarea { width: 95%; padding: 10px; font-size: 15px; border: 5px solid grey; border-radius: 8px; resize: vertical; margin-top: 8px; background-color: white; } .comment-box button { margin-top: 15px; background-color: grey; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; } 
-  .comment-box button:hover { background-color: darkslategray; transition: background-color 0.3s ease; } #commentResult { margin-top: 20px; padding: 15px; background-color: #eafbe7; border-left: 4px solid grey; font-size: 16px; border-radius: 5px; } /* Responsive for smaller screens */ @media (max-width: 600px) { .menu1 ul { flex-direction: grid; gap: 10px; } .menu1 ul li { width: 100%; } } .comment-box input[type="text"], .comment-box input[type="email"] { width: 95%; padding: 10px; font-size: 15px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; } </style>
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+    }
+
+    .menu1 {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .menu1 ul {
+      flex-direction: column;
+      width: 80%;
+    }
+
+    .menu1 ul li {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 18px 25px;
+      font-size: 18px;
+    }
+
+    .menu1 ul li a {
+      justify-content: flex-start;
+    }
+
+    .logo {
+      width: 150px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo {
+      width: 120px;
+    }
+
+    .menu1 ul li {
+      padding: 20px 30px;
+      font-size: 20px;
+    }
+
+    .menu1 ul li a {
+      font-size: 18px;
+    }
+
+    .menu1 ul li a i {
+      font-size: 18px;
+    }
+  }
+
+  /* Help Page Content */
+  .help-container { 
+    margin: 100px auto 40px auto; 
+    width: 90%; 
+    max-width: 800px; 
+    background-color: white; 
+    padding: 20px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+  } 
+
+  .help-container h1 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+    font-size: 32px; 
+    color: #343a40; 
+  }
+
+  .faq { border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px; } 
+  .faq h3 { cursor: pointer; margin: 0; padding: 10px; background-color: #eee; border-radius: 5px; font-size: 18px; } 
+  .faq p { display: none; margin: 10px 0 0 0; padding: 10px; background-color: #f9f9f9; border-left: 3px solid #007bff; font-size: 16px; }
+  .faq.open p { display: block; } 
+
+  .contact { margin-top: 30px; } 
+  .contact h2 { margin-bottom: 10px; } 
+  .contact p { margin: 5px 0; color: #495057; }
+
+  .comment-box {
+    margin: 40px auto;
+    max-width: 800px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .comment-box h2 { text-align: center; margin-bottom: 15px; color: #343a40; } 
+  .comment-box input, .comment-box textarea {
+    width: 95%; 
+    padding: 10px; 
+    font-size: 15px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+  }
+
+  .comment-box button { 
+    margin-top: 10px; 
+    background-color: grey; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 16px; 
+  }
+
+  .comment-box button:hover { background-color: darkslategray; }
+
+  #commentResult { 
+    margin-top: 20px; 
+    padding: 15px; 
+    background-color: #eafbe7; 
+    border-left: 4px solid grey; 
+    font-size: 16px; 
+    border-radius: 5px; 
+  }
+</style>
+
 </head>
 <body>
 
